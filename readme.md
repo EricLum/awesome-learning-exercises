@@ -32,30 +32,44 @@ When adding a new lesson, it should:
 4. Include suggested solutions to all exercises
 
 ### Repo Structure 
-WIP
+We follow the rough structure of 
 ```
+├── course-name
+│   ├── lesson-name-1
+│   ├── lesson-name-2
+│   ├── etc....
+```
+This manifests as something like this: 
+```
+├── array-methods
+│   ├── advanced-reduce
+│   ├── filter-and-map
+│   ├── forEach
+│   ├── reduce
+│   └── sort
+├── async-patterns
+│   ├── advanced-promises
+│   └── intro-to-promises
 ├── data-types
+│   ├── objects
 │   └── types-and-equality
-│       ├── package.json
-│       └── src
-│           ├── exercises
-│           │   └── __tests__
-│           │       ├── 1-types.test.js
-│           │       ├── 2-equality.test.js
-│           │       └── 3-practical-types-and-equality.test.js
-│           └── solutions
-│               ├── 1-solution.js
-│               ├── 2-solution.js
-│               └── 3-solution.js
-├── package.json
-└── readme.md
+├── functions-and-scope
+│   ├── closures
+│   ├── context-and-arrows
+│   └── scope
+├── testing
+|   ├── components-and-enzyme
+|   └── intro-to-unit-testing
+├── readme.md
+└── package.json
 ```
 
 ### Example Lesson Structure With Jest Tests
-NOTE: For the codesandbox github wizard to work, you will need a package.json file at the top level of your lesson folder. 
+Within each lesson directory should be all the files required to build a working codesanbox instance. 
 
-#### A word about Jest
-If you are relying on jest tests, test files must be contained within a __tests__ folder nested underneath a `src` directory or codesandbox will not transpile the files correctly, and global Jest variables will not be in scope. This is a known issue for codesandbox and will hopefully be resolved soon. 
+**NOTE:** For the codesandbox github wizard to work, you will need a package.json file at the top level of your lesson folder. 
+
+Example "types and equality" lesson under the "data-types" course directory
 ```
 ├── data-types
 │   └── types-and-equality
@@ -71,6 +85,10 @@ If you are relying on jest tests, test files must be contained within a __tests_
 │               ├── 2-solution.js
 │               └── 3-solution.js
 ```
+
+#### A quick word about Jest
+If you are relying on jest tests, test files must be contained within a `__tests__` folder nested underneath a `src` directory or codesandbox will not transpile the files correctly, and global Jest variables will not be in scope. This is a known issue for codesandbox and will hopefully be resolved soon. 
+
 #### Example package.json for a lesson
 ```
 {
