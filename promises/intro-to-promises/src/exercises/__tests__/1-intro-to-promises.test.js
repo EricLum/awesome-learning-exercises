@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
-import { fetchUser, newFetchUser } from "../api/users";
-import fetchBasket from "../api/baskets";
+import { fetchUser, newFetchUser } from "../../api/users";
+import fetchBasket from "../../api/baskets";
 
 `
 ⬇️
