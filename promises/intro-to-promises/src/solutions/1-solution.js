@@ -36,7 +36,7 @@ test('the promise rejects with a string of "promise rejected!"', () => {
 
 const getUserById = id => {
   // Your code here
-  return new Promise(res => fetchUser(id, response => res(response)));
+  return new Promise(response => fetchUser(id, response));
 };
 
 test("getUserId is a promise that returns users when called with ids", () => {
@@ -56,9 +56,9 @@ test("getUserId is a promise that returns users when called with ids", () => {
 
 const getBasketId = userId => {
   // Your code here
-  return newFetchUser(userId).then(response => {
-    return response.basketId || "";
-  });
+  return newFetchUser(userId).then(userObject =>
+    userObject ? userObject.basketId : ""
+  );
 };
 
 test("getBasketId returns a basket ID when one exists", () => {
@@ -101,18 +101,27 @@ test("getBasketItems catches an error in getBasketId when invalid basketId is pa
  * Exercise 6 - Putting it all together
  */
 
+
+/** ************************** OK SOLUTION ***************************************** */
 const getUserBasket = userId => {
   return getBasketId(userId)
     .then(basketId => {
-      console.log("basketID", basketId);
       return getBasketItems(basketId)
-        .then(basketItems => {
-          return basketItems;
-        })
-        .catch(getBasketItemsError => ({ error: getBasketItemsError }));
     })
-    .catch(getBasketIdError => ({ error: getBasketIdError }));
+    .catch();
 };
+
+/** ************************** BETTER(?) SOLUTION ***************************************** */
+const getUserBasket = userId => {
+  return getBasketId(userId)
+    .then(getBasketItems)
+    .catch();
+};
+
+/**
+ * If you are curious how the above works, check out  
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then#Parameters
+ */
 
 test("getUserBasket returns basket items when they exist", () => {
   return expect(getUserBasket("14356")).resolves.toEqual([
@@ -123,14 +132,10 @@ test("getUserBasket returns empty array when a user has no basket ID", () => {
   return expect(getUserBasket("14357")).resolves.toEqual([]);
 });
 test("getUserBasket throws an error when an invalid user id is passed", () => {
-  return expect(getUserBasket("invalid id")).resolves.toEqual({
-    error: "Invalid user ID passed"
-  });
+  return expect(getUserBasket("invalid id")).rejects.toBe("Invalid user ID passed");
 });
 test("getUserBasket throws an error when an invalid basket id is passed", () => {
   // This should throw an error on the basket call because the user returns
   // a null basket id which isn't a valid parameter for the basket endpoint.
-  return expect(getUserBasket("14358")).resolves.toEqual({
-    error: "Invalid basket ID passed"
-  });
+  return expect(getUserBasket("14358")).rejects.toBe("Invalid basket ID passed");
 });

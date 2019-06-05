@@ -3,7 +3,7 @@ import { fetchUser, newFetchUser } from "../api/users";
 import fetchBasket from "../api/baskets";
 
 `
-⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️⬇️
+⬇️
 
 Welcome to Async Js- Intro to promises!
 
@@ -14,7 +14,7 @@ Welcome to Async Js- Intro to promises!
  If you are curious about those fake APIs, feel free to
  check them out in the ../api folder.
 
- ⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️⬆️
+ ⬆️
 `;
 
 `
@@ -85,9 +85,9 @@ test("getUserId is a promise that returns users when called with ids", () => {
 📚 Exercise 4 - Getting values from a promise 📚 
  
   Good news! Your team was able to write newFetchUser which has
-  the same functionality but is completely promised-based.
+  the same functionality fetchUser but is completely promised-based.
  
-  Now your team needs to implement a new feature, populate a user's
+  Now your team needs to implement a new feature - populate a user's
   shopping basket with their selected items when they leave and
   come back.
  
@@ -97,6 +97,14 @@ test("getUserId is a promise that returns users when called with ids", () => {
   🛠️ Write a function called getBasketId which takes in a user ID,
   🛠️ calls newFetchUser with the user id, and resolves with their
   🛠️ basketId if they have one, and an empty string if not.
+  
+  💡 newFetchUser returns an object in this shape:
+  {
+    userId: "14358",
+    name: "Mal FormedData",
+    isPreferredCustomer: false,
+    basketId: 1234
+  }
 `;
 
 const getBasketId = userId => {
@@ -158,18 +166,11 @@ test("getBasketItems catches an error in getBasketId when invalid basketId is pa
   🛠️ Fill in the getUserBasket function below. 
   🛠️ This function should take a user id and resolve with
   🛠️ an array of their basket items if they have any, an
-  🛠 empty array if they dont, and catch errors specific to each call.
- 
-  🚨 You will need more than one catch to handle errors
-  from both getBasketId and getBasketItems
+  🛠 empty array if they don't, return any errors resulting from 
+  🛠 any part of this operation.
 
   🚨 This will require you to call both the getUserBasket and
   getBasketItems functions you have written.
- 
-  💡 Your catches should return an object of the shape:
-  {
-     error: <error message returned from the ajax operation>
-  }
  `;
 
 const getUserBasket = userId => {
@@ -185,14 +186,10 @@ test("getUserBasket returns empty array when a user has no basket ID", () => {
   return expect(getUserBasket("14357")).resolves.toEqual([]);
 });
 test("getUserBasket throws an error when an invalid user id is passed", () => {
-  return expect(getUserBasket("invalid id")).resolves.toEqual({
-    error: "Invalid user ID passed"
-  });
+  return expect(getUserBasket("invalid id")).rejects.toEqual("Invalid user ID passed");
 });
 test("getUserBasket throws an error when an invalid basket id is passed", () => {
   // This should throw an error on the basket call because the user returns
   // a null basket id which isn't a valid parameter for the basket endpoint.
-  return expect(getUserBasket("14358")).resolves.toEqual({
-    error: "Invalid basket ID passed"
-  });
+  return expect(getUserBasket("14358")).rejects.toEqual("Invalid basket ID passed");
 });
