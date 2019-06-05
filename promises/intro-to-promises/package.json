@@ -2,7 +2,7 @@
   "name": "async-patterns-promises",
   "version": "1.0.0",
   "description": "Group and pair exercises.",
-  "main": "index.html",
+  "main": "./src/exercises/1-intro-to-promises.test.js",
   "scripts": {},
   "dependencies": {
     "jest": "23.6.0",
