@@ -1,6 +1,4 @@
-export const data = {
-  numbersArray: [1, 2, 3, 4, 5, 6, 7],
-  customers: [
+export const customers = [
     {
       first: "Rodrick",
       last: "Rutledge",
@@ -39,7 +37,8 @@ export const data = {
       email: "anthonypleasant@gmail.com"
     }
   ],
-  products: [
+
+  export const products = [
     {
       id: 2335,
       name: "Darby Sectional",
@@ -50,6 +49,7 @@ export const data = {
     {
       id: 1325,
       name: "Red Bar Stool",
+      outOfStock: false,
       rating: 4.3
     },
     {
@@ -62,12 +62,13 @@ export const data = {
     {
       id: 1120,
       name: "Quilted Head Board",
+      outOfStock: false,
       rating: 2.4
     },
     {
       id: 4435,
       name: "Rusty Barn Door",
+      outOfStock: false,
       rating: 4
     }
   ]
-};
