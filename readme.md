@@ -112,12 +112,12 @@ If you are relying on jest tests, test files must be contained within a `__tests
   }
 }
 ```
-```
+
 ## Lesson Formatting
 
 We use template strings and emojis to denote comments and directions within our lesson files
 
-
+```
 Lesson Introduction
 ------------------------------------------------
 ⬇️ = Indicates the beginning of the lesson description block
