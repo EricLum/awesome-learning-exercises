@@ -113,4 +113,144 @@ If you are relying on jest tests, test files must be contained within a `__tests
 }
 ```
 
+## Lesson Formatting
 
+We use template strings and emojis to denote comments and directions within our lesson files
+
+
+Lesson Introduction
+------------------------------------------------
+⬇️ = Indicates the beginning of the lesson description block
+⬆️ = Indicates the end of the lesson description block 
+
+Example: 
+`
+	⬇️
+	
+	Welcome to <Session Name - Blah Blah>
+	
+	This will do things and other things
+	
+	⬆️
+`
+------------------------------------------------
+
+
+Exercise Description
+------------------------------------------------
+	📚 = Brackets an exercise title
+
+Example: 
+
+	`📚 Exercise 1 - Let's write a promise 📚`
+
+------------------------
+🛠️ = Denotes the exercise task
+
+Example: 
+
+	`🛠️ Fill in the getUserBasket function below.  
+   🛠️ This function should take a user id and resolve with
+   🛠️ an array of their basket items if they have any,
+  `
+------------------------
+💡 = Denotes a tip, trick, or hint
+
+Example: 
+
+  `💡 fetchBasket returns an object in this shape:
+	  {
+	    customerId: string,
+	    name: string,
+	    items: array
+	  }
+   `
+------------------------
+
+🚨 = Denotes a warning, callout, something that may trip people up
+
+Example: 
+
+	`🚨 This will require you to call getUserBasket`
+
+------------------------------------------------
+
+
+Example Exercise: 
+------------------------------------------------
+`
+📚 Exercise 5 - Implement getBasketItems 📚
+ 
+  Now that we can fetch a basketId given a userId,
+  we need a way to fetch baskets.
+ 
+  Luckily we have a promise-based function called fetchBasket
+  which takes in a basketId, hits an endpoint, and returns a basket
+  object if one matches the basketId provided.
+ 
+  🛠️ Fill in the getBasketItems function below
+  🛠️ It should take in a basketId string, 
+  🛠️ call the fetchBasket endpoint with basketId.
+  🛠️ If items exists on the response object, resolve with the items array.
+  🛠️ If items doesn't exist on the response object, resolve with an empty array
+ 
+  💡 fetchBasket returns an object in this shape:
+  {
+    customerId: string,
+    name: string,
+    items: array
+  }
+`;
+------------------------------------------------
+
+
+Example File
+------------------------------------------------
+`
+⬇️
+
+Welcome to Async Js- Intro to promises!
+
+ This will build your knowledge of async JS -
+ particularly promises. You will use to two mock APIs
+ to mimic working with something like a fetch or AJAX call.
+
+ If you are curious about those fake APIs, feel free to
+ check them out in the ../api folder.
+
+ ⬆️
+`;
+
+`
+📚 Exercise 1 - Let's write a promise 📚
+
+🛠️ Inside the exerciseOne block, return a new promise.
+🛠️ This promise should resolve with the string
+🛠️ 'promise complete!' after a delay of 100ms.
+
+`;
+
+const exerciseOne = () => {
+  // Your code here
+};
+
+test('the promise resolves with a string of "promise complete!"', () => {
+  return expect(exerciseOne()).resolves.toBe("promise complete!");
+});
+
+`
+📚 Exercise 2 - Rejected! 📚 
+
+🛠️ Return a new promise from the exerciseTwo block.
+🛠️ This promise should reject with the string
+🛠️ 'promise rejected!' after a delay of 100ms.
+`;
+
+const exerciseTwo = () => {
+  // Your code here
+};
+
+test('the promise rejects with a string of "promise rejected!"', () => {
+  expect.assertions(1);
+  return expect(exerciseTwo()).rejects.toMatch("promise rejected!");
+});
