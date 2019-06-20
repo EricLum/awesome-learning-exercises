@@ -1,17 +1,20 @@
 {
-  "name": "session-1-types",
+  "name": "array-methods-forEach",
   "version": "1.0.0",
-  "description": "Exercises for Awesome Data Types Session 1 (with solutions)",
-  "main": "index.html",
-  "scripts": {},
+  "description": "",
+  "main": "/src/__tests__/1-forEach_exercises.test.js",
   "dependencies": {
-    "enzyme": "3.8.0",
-    "jest": "23.6.0"
+    "jest": "23.6.0",
+    "jest-html-reporter": "2.5.0"
   },
   "devDependencies": {
-    "@types/enzyme": "3.1.15",
-    "@types/jasmine": "3.3.5",
-    "@types/jest": "23.3.12"
+    "@types/jest": "23.3.13",
+    "jest": "23.6.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "jest": true
+    }
   },
   "keywords": []
 }
