@@ -1,20 +1,19 @@
 /*eslint-disable no-unused-expressions */
-import {products, customers} from '../mockData';
+import { products, customers } from "../mockData";
 `
 ⬇️
 
 Welcome to Array Methods - Map and Filter! 
 
 In the following exercises we will utilize map, 
-filter and a few helper methods like `includes`, 
-`some`, and `every` to manipulate collections of 
+filter and to manipulate collections of data.
 
 💡 We import a mock data object used for testing your functions.
 💡 If you are interested in the shape of the data, please 
 💡 feel free to look at the mockData.js file. 
 
 ⬆️
-`
+`;
 
 
 `📚 Exercise #1 - Write a vanilla JS implementation of map 📚
