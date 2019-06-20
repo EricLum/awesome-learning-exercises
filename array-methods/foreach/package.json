@@ -2,7 +2,7 @@
   "name": "array-methods-forEach",
   "version": "1.0.0",
   "description": "",
-  "main": "/src/__tests__/1-forEach_exercises.test.js",
+  "main": "/src/__tests__/1_forEach_exercises.test.js",
   "dependencies": {
     "jest": "23.6.0",
     "jest-html-reporter": "2.5.0"
