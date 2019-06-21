@@ -54,11 +54,11 @@ const averageCategoryRating = (products, key) => {
 };
 
 describe("Exercise 1", () => {
-  it("returns the average rating of all products in data.products that match the supplied string key", () => {
+  it("returns the average rating of all products in products that match the supplied string key", () => {
     // when passed bedroom, should match ids 1120 and 3113
-    expect(averageCategoryRating(data.products, "bedroom")).toBe(3.6);
+    expect(averageCategoryRating(products, "bedroom")).toBe(3.6);
     // when passed livingroom should match 4195, 4435, 2335, and 1325.
-    expect(averageCategoryRating(data.products, "livingroom")).toBe(3.8);
+    expect(averageCategoryRating(products, "livingroom")).toBe(3.8);
   });
 });
 
@@ -99,7 +99,7 @@ const groupByKeys = malformedData => {
 
 describe("Exercise 2", () => {
   it("returns the properly formed data", () => {
-    expect(groupByKeys(data.malformedProductData)).toEqual({
+    expect(groupByKeys(malformedProductData)).toEqual({
       category: [
         "bedroom_bed",
         "livingroom_furniture",
@@ -133,6 +133,6 @@ const savedItemsIntersection = customers => {
 
 describe("exercise 2", () => {
   it("returns the intersection of all customer's savedItems arrays", () => {
-    expect(savedItemsIntersection(data.customers)).toEqual([2335]);
+    expect(savedItemsIntersection(customers)).toEqual([2335]);
   });
 });
